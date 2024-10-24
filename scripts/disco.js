@@ -27,13 +27,12 @@ class Disco {
     toHTML() {
         let html = "";
         html += `<div class="card">\n`;
-        html += `<h2 class="card-title">${this.nombre}</h2>\n`;
+        html += `<h2>${this.nombre}</h2>\n`;
         html += `<img src="${this.portada}" class="img">\n`;
-        html += `<div class="card-body">\n`;
-        html += `<h3 class="card-text">${this.artista}</h3>\n`;
-        html += `<h4 class="card-text">ID: ${this.id}</h4>\n`;
-        html += `<h4 class="card-text">Stock: ${this.stock}</h4>\n`;
-        html += `<h4 class="card-text">Canciones:</h4>\n<ul>`;
+        html += `<div>\n`;
+        html += `<h3>${this.artista}</h3>\n`;
+        html += `<h4>ID: ${this.id}</h4>\n`;
+        html += `<h4>Pistas:</h4>\n<ul>`;
 
         this.pistas.forEach(pista => {
             const pistaEstilo = pista.duracion > 180 ? 'style="color: yellow;"' : '';
@@ -43,11 +42,11 @@ class Disco {
         html += `</ul>\n`; 
 
         const duracionTotal = this.calcularDuracionTotal();
-        html += `<h4 class="card-text">Duración Total: ${segundosAMinutos(duracionTotal)}</h4>\n`;
+        html += `<h4>Duración Total: ${segundosAMinutos(duracionTotal)}</h4>\n`;
 
         html += `</div>\n`;
-        html += `<button class="btn btn-primary" onclick="pedirDisco('${this.nombre}')">Pedir</button>`;
-        html += `<button class="btn btn-primary" onclick="devolverDisco('${this.nombre}')">Devolver</button>`;
+        html += `<button onclick="pedirDisco('${this.nombre}')">Pedir</button>`;
+        html += `<button onclick="devolverDisco('${this.nombre}')">Devolver</button>`;
         html += `</div>\n`;
 
         return html;

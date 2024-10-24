@@ -1,4 +1,3 @@
-// script/disqueria.js
 class Disqueria {
     constructor() {
         this.discos = [];
@@ -36,7 +35,6 @@ class Disqueria {
         }
     }
     
-
     buscarPorId(id) {
         console.log(`Buscando disco con ID: ${id}`); 
         let resultados = this.discos.filter(obj => obj.disco.id == id);
